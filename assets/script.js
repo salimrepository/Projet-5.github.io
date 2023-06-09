@@ -19,17 +19,41 @@ const slides = [
 
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
-
+const dotsContainer = document.querySelector('.dots');
 
 
 arrowLeft.addEventListener('click', () => {
   
-  
-  alert ("fleche gauche")
-  
+
+	alert ("fleche gauche")
+
 });
 
 arrowRight.addEventListener('click', () => {
-  
+	
 	alert ("fleche droite")
 });
+
+/*creation des bullets points*/
+
+function createDots() {
+	
+	const dot = document.createElement('div');
+	dot.classList.add('dot');
+	dotsContainer.appendChild(dot);
+	dot.classList.add("dot_selected")
+
+	const dotDeux = document.createElement('div');
+	dotDeux.classList.add('dot');
+	dotsContainer.appendChild(dotDeux);
+
+	const dotTrois = document.createElement('div');
+	dotTrois.classList.add('dot');
+	dotsContainer.appendChild(dotTrois);
+
+	const dotQuatre = document.createElement('div');
+	dotQuatre.classList.add('dot');
+	dotsContainer.appendChild(dotQuatre);
+	  
+}
+createDots();
