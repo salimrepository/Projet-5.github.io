@@ -20,18 +20,47 @@ const slides = [
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 const dotsContainer = document.querySelector('.dots');
+const bannerImg = document.querySelector('.banner-img');
+const tagLine = document.querySelector('#banner p');
+let slidePosition = 0;
 
+/*creation de la fonction slide pour images et texte*/
+
+function slide() {
+	
+	const dots = dotsContainer.querySelectorAll('.dot');
+	dots.forEach((dotFull, index) => {
+	  if (index === slidePosition) {
+		dotFull.classList.add('dot_selected');
+		console.log(index);
+	  } else {
+		dotFull.classList.remove('dot_selected');
+	  }
+
+	  
+	});
+
+  const slide = slides[slidePosition];
+  bannerImg.src = `./assets/images/slideshow/${slide.image}`;
+  tagLine.innerHTML = slide.tagLine;
+	
+  }
+
+  /*decrementation et appel de la fonction*/
 
 arrowLeft.addEventListener('click', () => {
   
 
-	alert ("fleche gauche")
-
+	slidePosition--
+	slide();
 });
+
+ /*incrementation et appel de la fonction*/
 
 arrowRight.addEventListener('click', () => {
 	
-	alert ("fleche droite")
+	slidePosition++
+	slide();
 });
 
 /*creation des bullets points*/
