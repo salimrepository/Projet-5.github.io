@@ -32,7 +32,6 @@ function slide() {
 	dots.forEach((dotFull, index) => {
 	  if (index === slidePosition) {
 		dotFull.classList.add('dot_selected');
-		console.log(index);
 	  } else {
 		dotFull.classList.remove('dot_selected');
 	  }
@@ -46,20 +45,24 @@ function slide() {
 	
   }
 
-  /*decrementation et appel de la fonction*/
+  /*decrementation et appel de la fonction + defilement infini*/
 
 arrowLeft.addEventListener('click', () => {
   
 
 	slidePosition--
+	if (slidePosition < 0)
+	slidePosition = 3;
 	slide();
 });
 
- /*incrementation et appel de la fonction*/
+ /*incrementation et appel de la fonction + defilement infini*/
 
 arrowRight.addEventListener('click', () => {
 	
 	slidePosition++
+	if (slidePosition > 3)
+	  slidePosition = 0;
 	slide();
 });
 
